@@ -3,6 +3,11 @@ import time
 import torch
 from torch.utils.tensorboard import SummaryWriter
 
+def acc_fn(y_p, y):
+  correct=torch.eq(y_p, y).sum().item()
+  acc=correct/len(y_p)
+  return acc
+
 def run_model(model, epochs, train_dataloader, test_dataloader, device, log_path=None):
 
   loss_fn=torch.nn.CrossEntropyLoss()
