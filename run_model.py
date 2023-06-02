@@ -6,9 +6,9 @@ from torch.utils.tensorboard import SummaryWriter
 def run_model(model, epochs, train_dataloader, test_dataloader, device, log_path=None):
   
   def acc_fn(y_p, y):
-  correct=torch.eq(y_p, y).sum().item()
-  acc=correct/len(y_p)
-  return acc
+    correct=torch.eq(y_p, y).sum().item()
+    acc=correct/len(y_p)
+    return acc
 
   loss_fn=torch.nn.CrossEntropyLoss()
   optimizer=torch.optim.Adam(params=model.parameters())
