@@ -9,7 +9,8 @@ def run_model(model, epochs, train_dataloader, test_dataloader, device, log_path
     correct=torch.eq(y_p, y).sum().item()
     acc=correct/len(y_p)
     return acc
-
+  
+  model=model.to(device)
   loss_fn=torch.nn.CrossEntropyLoss()
   optimizer=torch.optim.Adam(params=model.parameters())
   epochs=epochs
